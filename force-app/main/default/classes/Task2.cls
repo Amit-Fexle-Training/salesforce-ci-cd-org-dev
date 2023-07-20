@@ -10,7 +10,7 @@ Date : 16/03/2023
 
 public class Task2 {    
     
-    //Method that takes the Map as a parameter and returns the sum of all the values in the map
+    //Method that takes the Map as a parameter and returns the sum of all the values in the map 
     public void findSum(Map<String, Integer> myMap){
         Integer summation = 0;
         for(Integer m : myMap.values() ){
