@@ -1,0 +1,19 @@
+<!-- <template>
+    <lightning-breadcrumbs class="breadcrumb-list">
+        <lightning-breadcrumb label="Technology" onclick={handleNavigateToTechnology}></lightning-breadcrumb>
+        <lightning-breadcrumb label="Module" onclick={handleNavigateToModule}></lightning-breadcrumb>
+        <lightning-breadcrumb label="Secession" onclick={handleNavigateToSecession}></lightning-breadcrumb>
+    </lightning-breadcrumbs>
+</template> -->
+
+<template>
+    <lightning-breadcrumbs class="breadcrumb-list">
+        <lightning-breadcrumb label="Technology" onclick={handleNavigateToTechnology}></lightning-breadcrumb>
+        <template if:true={showModule}>
+            <lightning-breadcrumb label="Module" onclick={handleNavigateToModule}></lightning-breadcrumb>
+        </template>
+        <template if:true={showSession}>
+            <lightning-breadcrumb label="Session" onclick={handleNavigateToSession}></lightning-breadcrumb>
+        </template>
+    </lightning-breadcrumbs>
+</template>

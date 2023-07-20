@@ -1,0 +1,38 @@
+<!--
+*
+* Purpose : This Component will display report of all the records queried by applying filter on the selected obj
+*
+*Created Date : 05/27/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/27/2023
+*
+-->
+<template>
+    <lightning-card title="Object Report">
+        <div class="slds-m-around_medium">
+            <lightning-combobox 
+                label="Object"
+                options={objectOptions}
+                onchange={handleObjectChange}
+                value={selectedObject}
+            ></lightning-combobox>
+        </div>
+
+        
+            <div class="slds-m-around_medium">
+                <lightning-dual-listbox
+                    label="Fields"
+                    source-label="Available Fields"
+                    selected-label="Selected Fields"
+                    options={fieldOptions}
+                    value={selectedFields}
+                    onchange={handleFieldChange}
+                ></lightning-dual-listbox>
+            </div>
+        
+        <c-add-filter-component field-options={fieldOptions}></c-add-filter-component>
+        <c-show-record-table></c-show-record-table>
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>57.0</apiVersion>
+	<isExposed>true</isExposed>
+	<masterLabel>Object Records Details Component</masterLabel>
+	<description>Component To Take Record Id From ObjectRecordSelector and Show The Details Of Record On UI</description>
+	<targets>
+		<target>lightning__RecordPage</target>
+		<target>lightning__AppPage</target>
+		<target>lightning__HomePage</target>
+	</targets>
+	 <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage,lightning__RecordPage">
+            <property name="recordId" type="String" label="Object Record Id" />
+			<property name="objectName" type="String" label="Object Name" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

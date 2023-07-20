@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+}
+
+.suggestion-list {
+  width: 200px;
+  height: 400px;
+  overflow-y: auto;
+  background-color: rgb(145, 162, 246);
+}
+
+.suggestion-list ul {
+  list-style-type: none;
+  padding: 5px;
+  margin: 1px;
+}
+
+.suggestion-list li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.suggestion-list li.active {
+  background-color: lightgray;
+}
+
+.video-player {
+  flex: 1;
+  background-color: navy;
+  padding: 10px;
+  margin: 1px;
+}
+
+.additional-div {
+  padding: 5px;
+  margin: 1px;
+  background-color: rgb(109, 131, 239);
+}

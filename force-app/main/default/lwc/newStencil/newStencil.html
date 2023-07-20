@@ -1,0 +1,43 @@
+<!--
+	Purpose         :   Stencils Template - To be used while component loading 
+	Created By      :   Amit Kumar
+	Created Date    :   06/15/2023
+	Current Version :   v1.0
+	Revision Log    :   V_1.0 Created - Amit Kumar - 06/15/2023
+-->
+<template>
+	<div class="stencil-container">
+		<!-- Header Section -->
+		<div class="container">
+			<img src={logoIcon} class="logo"  />
+			<div class="rectangle2"></div>
+			<img src={userIcon} class="icon" />
+        </div>
+			<!-- Container Lines -->
+			<div class="lines-container">
+				<div class="container-line1"></div>
+				<div class="container-line2"></div>
+				<div class="container-line3"></div>
+			</div>
+			<!-- Container Section -->
+			<div class="container-section">
+				<!-- Three Squares -->
+				<template for:each={squares} for:item="square" key={square.id}>
+					<div key={square.id} class="square">
+						<!-- Three Lines -->
+                        <div class="internal-square">
+                        </div>
+						<div class="line-container">
+							<div class="line1"></div>
+							<div class="line2"></div>
+							<div class="line3"></div>
+						</div>
+					</div>
+				</template>
+			</div>
+			<!-- Footer Section Lines -->
+			<div class="footer-line1"></div>
+			<div class="footer-line2"></div>
+			<div class="footer-line3"></div>
+		</div>
+</template>

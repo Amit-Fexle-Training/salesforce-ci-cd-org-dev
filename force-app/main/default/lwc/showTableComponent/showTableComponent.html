@@ -1,0 +1,81 @@
+<template>
+    <lightning-card title="Student Table" >
+        <template if:true={updateButtonClicked}>
+            <lightning-card title="Student Record Update Form" >
+                <div class="slds-m-around_medium">
+                    <lightning-input label="Student Name" value={name} onchange={handleNameChange}></lightning-input>
+                    <lightning-input label="Type" value={email} onchange={handleTypeChange}></lightning-input>
+                    <lightning-input label="Father Name" value={fatherName} onchange={handleFatherNameChange}></lightning-input>
+                    <lightning-input label="Father Email" value={fatherEmail} onchange={handleFatherEmailChange}></lightning-input>
+                    <template if:true={isLoadingEdit}>
+                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                    </template>
+                    <template if:false={isLoadingEdit}>
+                        <div if:true={errorMessage} class="error-message">{errorMessage}</div>
+                        <lightning-button variant="brand" label="Update" onclick={handleUpdateSubmit}></lightning-button>
+                    </template>
+                    <lightning-button variant="destructive" label="Close" onclick={handleCloseSubmit}></lightning-button>
+                </div>
+            </lightning-card>
+        </template>
+        <div class="slds-p-left_small"> <b> List Of Students </b> </div>   
+            <div class="slds-col slds-align-right slds-text-align_right slds-p-top_medium"> 
+                <template if:true={isLoadingBulkDelete}>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </template>
+                <template if:false={isLoadingBulkDelete}>
+                    <div if:true={errorMessage} class="error-message">{errorMessage}</div>
+                    <lightning-button variant="destructive" label="Delete All" onclick={handleDeleteAll}></lightning-button>
+                </template>
+                <lightning-button variant="brand" label="Edit All" onclick={handleEditAll}></lightning-button>
+            </div>
+            <div></div>
+            <template if:true={studentData}>
+                <div class="slds-scrollable_x">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col">  </th>
+                                <th scope="col"> Id </th>
+                                <th scope="col"> Student Name </th>
+                                <th scope="col"> Type </th>
+                                <th scope="col"> Father Name </th>
+                                <th scope="col"> Father Email </th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={studentData} for:item="student">
+                                <tr key={student.Id}>
+                                    <td>
+                                        <lightning-input type="checkbox" value={student.Id} onchange={handleCheckboxChange}></lightning-input>
+                                    </td>
+                                    <td>{student.Id}</td>
+                                    <td>{student.Name}</td>
+                                    <td>{student.Type__c}</td>
+                                    <td>{student.Father_NAme__c}</td>
+                                    <td>{student.Father_Email__c}</td>
+                                    <td>
+                                    <b>DELETE </b>
+                                    <template if:true={isLoadingDelete}>
+                                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                                    </template>
+                                    <template if:false={isLoadingDelete}>
+                                        <div if:true={errorMessage} class="error-message">{errorMessage}</div>
+                                        <lightning-button-icon
+                                            icon-name="utility:delete"
+                                            variant="border-filled"
+                                            alternative-text="Delete"
+                                            onclick={handleDelete}
+                                            data-studentid={student.Id}>
+                                        </lightning-button-icon>
+                                    </template>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template> 
+    </lightning-card>
+</template>

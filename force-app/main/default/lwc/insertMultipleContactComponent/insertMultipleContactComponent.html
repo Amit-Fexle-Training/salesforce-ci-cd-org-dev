@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Create Multiple Contact">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={contactList} for:item="contact" for:index="index">
+                    <tr key={contact.key}>
+                        <td>{contact.rowNumber}</td>
+                        <td><lightning-input value={contact.LastName} onchange={handleLastNameChange} data-index={index}></lightning-input></td>
+                        <td><lightning-input value={contact.FirstName} onchange={handleFirstNameChange} data-index={index}></lightning-input></td>
+                        <td><lightning-input value={contact.Email} onchange={handleEmailChange} data-index={index}></lightning-input></td>
+                        <td><lightning-button-icon icon-name="utility:delete" variant="destructive" alternative-text="Delete" onclick={handleDelete} data-index={index} ></lightning-button-icon></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        <div class="slds-grid slds-align_absolute-center slds-m-top_medium">
+            <lightning-button variant="brand" label="Add" onclick={handleAdd} class="slds-m-right_medium"></lightning-button>
+            <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+        </div>
+    </lightning-card>
+    <template if:true={contactCreated}>
+        <lightning-card title="Created Contacts">
+            <div style="width:100%">
+                <lightning-datatable
+                    key-field="id"
+                    data={contactList}
+                    columns={columns}
+                >
+                </lightning-datatable>
+            </div>
+        </lightning-card>
+    </template>
+</template>

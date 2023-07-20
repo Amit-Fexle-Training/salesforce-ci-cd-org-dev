@@ -1,0 +1,33 @@
+<!--
+*
+* Purpose : Child Component To Show Filtered Record
+*
+*Created Date : 05/27/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/27/2023
+*
+-->
+<template>
+    <lightning-card title="Queryied Records">
+        <table>
+        <thead>
+            <tr>
+                <template for:each={tableHeaders} for:item="header">
+                    <th key={header}>{header}</th>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={tableData} for:item="row">
+                <tr key={row.Id}>
+                    <template for:each={row} for:item="cell">
+                        <td key={cell}>{cell}</td>
+                    </template>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+    </lightning-card>
+</template>

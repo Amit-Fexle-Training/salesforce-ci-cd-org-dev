@@ -1,0 +1,50 @@
+<!--
+*
+* Purpose : Generic Table To Display Different Object Records Using Standard LWC Table Component
+*
+*Created Date : 05/19/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/19/2023
+*
+-->
+<template>
+    <lightning-card>
+        
+        <div class="slds-p-left_small">
+            <span> <b> Object API Name : </b></span>
+            <span>{objectName}</span>
+        </div>
+
+        <div class="slds-m-bottom_small"></div>
+
+        <div class="slds-p-left_small">
+            <span> <b> Fields API Name : </b></span>
+            <span>{fieldsName}</span>
+        </div>
+
+        <div class="slds-m-bottom_small"></div> 
+
+        <div class="slds-p-left_small">
+            <span> <b> Limit Value : </b></span>
+            <span>{limitValue}</span>
+        </div>
+
+        <div class="slds-m-bottom_small"></div> 
+
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+        <template if:false={isLoading}>
+        <div style="width:100%">
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+            >
+            </lightning-datatable>
+        </div>
+        </template>
+    </lightning-card>
+</template>

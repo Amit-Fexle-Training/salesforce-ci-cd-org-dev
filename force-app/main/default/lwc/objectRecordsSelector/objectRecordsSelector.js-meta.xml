@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>57.0</apiVersion>
+	<isExposed>true</isExposed>
+	<masterLabel>Object Records Selector Component</masterLabel>
+	<description>Component To Take Object Name From User and Show All Records Of Object On UI</description>
+	<targets>
+		<!--<target>lightning__RecordPage</target>
+		<target>lightning__HomePage</target> -->
+		<target>lightning__AppPage</target>
+	</targets>
+	<targetConfigs>
+        <targetConfig targets="lightning__AppPage">
+            <event
+                name="objectselected"
+                label="Object And Record Selected"
+                description="This event fires when a record is selected."
+            >
+                <schema>
+                    {
+                        "type": "object",
+                        "properties": {
+                            "recordId": {
+                                "type": "string",
+                                "title": "Record Id",
+                                "description": "Enter an 18-digit record Id."
+                            },
+							"objectName": {
+                                "type": "string",
+                                "title": "Object Name",
+                                "description": "Enter Object Name"
+                            }
+                       }
+                    }
+                </schema>
+            </event>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

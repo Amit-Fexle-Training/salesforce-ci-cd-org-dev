@@ -1,0 +1,38 @@
+<!--
+*
+*  Purpose          :   VF Page to build custom detail page for objects in Org using standard controller.
+*
+*  Created Date     :   11/26/2023
+*
+*  Created By       :   Amit Kumar
+*
+*  Revision Logs    :   V_1.0 - Created
+*
+-->
+<apex:page sidebar="false" cache="false" lightningStylesheets="true" controller="ObjectDetailOnVFPageController" 
+           label="Object Detail Page" standardStylesheets="true" title="Object Details Page" >
+    
+    <apex:form >
+        <apex:pageBlock mode="Detail" title="Object Fields">
+            <apex:pageBlockSection >
+                <apex:outputLabel value="Object Name">
+                    <apex:inputText value="{!enteredObjectName}"></apex:inputText>
+                    <apex:commandButton value="Get Fields" action="{!getFieldsOfEnteredObject}" />
+                </apex:outputLabel>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Fields In Object">
+                <apex:pageBlockTable value="{!listOffields}" var="field" id="FieldsDetails">
+                    <apex:column headerValue="Field Name">
+                        <apex:outputText value="{!field}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <!--<apex:pageBlockSection title="Fields In Object">
+                <apex:selectList id="myDropdown" size="1"  >
+                    <apex:selectOptions value="{!fieldNameOptions}" />
+                </apex:selectList>
+            </apex:pageBlockSection>-->
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

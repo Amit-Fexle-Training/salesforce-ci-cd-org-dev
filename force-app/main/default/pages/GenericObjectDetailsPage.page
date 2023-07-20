@@ -1,0 +1,63 @@
+<!--
+*
+*  Purpose          :   VF Page to build custom detail page for objects in Org using standard controller.
+*
+*  Created Date     :   11/29/2023
+*
+*  Created By       :   Amit Kumar
+*
+*  Revision Logs    :   V_1.0 - Created
+*
+-->
+<apex:page sidebar="false" cache="false" lightningStylesheets="true" controller="GenericObjectDetailsPageController" 
+           label="Object Detail Page" standardStylesheets="true" title="Object Details Page">
+    <script>
+    function toggleDropdown() {
+        var dropdown = document.getElementById('myDropdown');
+        dropdown.size = dropdown.size == 1 ? dropdown.options.length : 1;
+    }
+    
+    function toggleDropdown1() {
+        var dropdown1 = document.getElementById('myDropdown1');
+        dropdown1.size = dropdown1.size == 1 ? dropdown1.options.length : 1;
+    }
+    
+    
+    </script>
+    
+    <apex:form >
+        
+        <apex:pageBlock mode="detail"  title="Object Detail Page" >
+            <apex:pageBlockSection title="Select Object And Click Submit"> 
+                <apex:selectList value="{!selectedObjectname}" id="myDropdown" size="1" onclick="toggleDropdown();" >
+                    <apex:selectOptions value="{!objectNameOptions}" />
+                    
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:commandButton value="Submit" action="{!allFieldsInSelectedObject}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Select Field And Click Submit">
+                <apex:selectList value="{!seletedFieldName}" id="myDropdown1" size="1" onclick="toggleDropdown();" >
+                    <apex:selectOptions value="{!fieldNameOptions}" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:commandButton value="Submit" action="{!selectedFieldDetails}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Field Details" >
+                <apex:pageBlockTable value="{!fieldWrappers}" var="field">
+                    <apex:column headerValue="Field Name" value="{!field.name}" />
+                    <apex:column headerValue="Api Name" value="{!field.apiname}" />
+                    <apex:column headerValue="Label" value="{!field.label}" />
+                    <apex:column headerValue="Is Unique" value="{!field.Unique}" />
+                    <apex:column headerValue="Is External ID" value="{!field.ExternalId}" />
+                    <apex:column headerValue="Data Type" value="{!field.dataType}" />
+                    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

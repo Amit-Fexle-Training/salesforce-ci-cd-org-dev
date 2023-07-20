@@ -1,0 +1,50 @@
+<template>
+	<div class="container" if:true={isHome}>
+		<!-- Header Section -->
+		<div class="header-section">
+			<h1><b>{componentName}</b></h1>
+		</div>
+
+		<!-- Introduction Section -->
+		<div class="introduction-section">
+			<p>Welcome to the {componentName}!!! Here You can enjoy various AI tools thats going to makes yours work
+				more easy and enjoyable.</p>
+		</div>
+
+		<!-- Content Section -->
+		<div class="content-section">
+			<div class="card-container">
+				<template for:each={cards} for:item="card" key={card.id}>
+					<div key={card.id} class="card" onclick={handleCardClick} data-card-id={card.id}>
+						<div class="card-image">
+							<img src={card.imageUrl} alt={card.title} />
+                        </div>
+						<div class="card-content">
+							<h2>{card.title}</h2>
+							<p>{card.description}</p>
+						</div>
+					</div>
+				</template>
+			</div>
+		</div>
+
+		<!-- Footer Section -->
+		<div class="footer-section">
+			<p>All Rights Reserved</p>
+		</div>
+	</div>
+    <div class="container" if:false={isHome}>
+		<template if:true={isCard1Selected}>
+			<c-lwc-bot-component></c-lwc-bot-component>
+		</template>
+		<template if:true={isCard2Selected}>
+			<c-image-g-p-t-component></c-image-g-p-t-component>
+		</template>
+		<template if:true={isCard3Selected}>
+			<span>AI Tool Is Under Development</span>
+		</template>
+        <div>
+            <lightning-button variant="base" label="Back" title="Back To Home" onclick={handleClick}></lightning-button>
+        </div>
+	</div>
+</template>

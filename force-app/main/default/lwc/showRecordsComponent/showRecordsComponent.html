@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Search Record">
+    <lightning-combobox
+      label="Record Name"
+      placeholder="Search Records"
+      options={filteredRecords}
+      value={selectedRecordId}
+      onchange={handleRecordSelection}
+      onfocus={handleComboBoxFocus}
+      oninput={handleRecordNameChange}>>
+    </lightning-combobox>
+  </lightning-card>
+</template>

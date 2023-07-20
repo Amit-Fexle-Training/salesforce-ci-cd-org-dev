@@ -1,0 +1,39 @@
+<!--
+*
+* Purpose : Component To Take Record Id From ObjectRecordSelector and Show The Details Of Record On UI
+*
+*Created Date : 05/22/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/19/2023
+*
+-->
+<template>
+  <lightning-card title="Object Record Details">
+    <template if:true={selectedRecord}>
+      <div class="slds-p-horizontal_medium slds-p-vertical_small">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+          <thead>
+            <tr class="slds-text-title_caps">
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Created By</th>
+              <th scope="col">Created Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={selectedRecord} for:item="field">
+              <tr key={field.Id}>
+                <td>{field.Id}</td>
+                <td>{field.Name}</td>
+                <td>{field.CreatedById}</td>
+                <td>{field.CreatedDate}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </template>
+  </lightning-card>
+</template>

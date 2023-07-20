@@ -1,0 +1,85 @@
+.container{
+	background-color: rgb(170, 0, 255);
+}
+
+.header {
+    background: rgb(170, 0, 255);
+    color: white;
+    font-size: 1rem;
+	text-align: left;
+}
+
+.game-container{
+	background-color: rgb(61, 66, 220);
+}
+.card-container{
+	display: flex;
+    justify-content: space-around;
+}
+.card {
+    width: 300px;
+	height: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+	background-color: rgba(19, 38, 183, 0.783);
+	margin: 10px;
+	align-items: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+	background-color: rgb(74, 50, 160);
+}
+
+.card-content{
+	text-align: center;
+    color: red;
+    font-size: 35px;
+    margin-top: 50%;
+}
+
+.header-content{
+	margin-left: 2%;
+	padding-bottom: 2%;
+}
+
+.heading{
+	margin-left: 40%;
+}
+
+.game-card-container{
+	display: flex;
+    justify-content: space-around;
+}
+
+.game-card {
+    width: 200px;
+	height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+	background-color: rgba(19, 38, 183, 0.783);
+	margin: 10px;
+	align-items: center;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+	background-color: rgb(74, 50, 160);
+}
+
+.game-card-content{
+	text-align: center;
+    color: red;
+    font-size: 35px;
+    margin-top: 30%;
+}
+
+.footer{
+	background-color: rgb(170, 0, 255);
+}

@@ -1,0 +1,35 @@
+<!--
+*
+* Purpose : Component To Take Object Name From User and Show All Records Of Object On UI
+*
+*Created Date : 05/22/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/19/2023
+*
+-->
+<template>
+  <lightning-card title="Object Records Selector">
+    <div class="slds-p-horizontal_medium slds-p-vertical_small">
+      <lightning-input
+        label="Object Name"
+        type="text"
+        onchange={handleObjectNameChange}
+      ></lightning-input>
+      <lightning-button
+        label="Get Records"
+        variant="brand"
+        onclick={handleGetRecords}
+      ></lightning-button>
+      <template if:true={recordOptions}>
+        <lightning-combobox
+          label="Select Record"
+          options={recordOptions}
+          value={selectedRecordId}
+          onchange={handleRecordSelected}
+        ></lightning-combobox>
+      </template>
+    </div>
+  </lightning-card>
+</template>

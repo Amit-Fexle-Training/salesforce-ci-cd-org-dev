@@ -1,0 +1,42 @@
+.stencil-container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 80px;
+    background-color: #f2f2f2;
+    padding-left: 20px; /* Add left padding to move the square to the left */
+}
+
+.square {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    margin-right: 20px; /* Add right margin to create space between square and rectangles */
+    align-self: flex-start; /* Align square to the top */
+    margin-top: 25px; /* Adjust the top margin to position the square */
+}
+
+.rectangle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding-right: 20px; /* Add right padding to the second rectangle */
+}
+
+.rectangle {
+    height: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.rectangle-50 {
+    width: 50%; /* Set the width of the first rectangle to 50% */
+    margin-top: 25px; /* Adjust the top margin to align with the square */
+}
+
+.rectangle-100 {
+    width: 95%; /* Set the width of the second rectangle to 100% */
+    padding-right: 20px; /* Add right padding to the second rectangle */
+}

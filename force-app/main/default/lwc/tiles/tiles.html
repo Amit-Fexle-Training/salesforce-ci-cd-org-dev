@@ -1,0 +1,32 @@
+<!--
+*
+*  Purpose          :	Tile (Lightning Web Component) JS
+*
+*  Created Date     :  	12/13/2022
+*
+*  Created By       :  	Amit Kumar
+*
+*  Revision Logs    :  	V_1.0 - Created - 06/02/2023
+*
+-->
+
+<template>
+
+    <!--Markup to be displayed once init logic has been executed successfully-->
+    <template if:true={state.initDone}>
+        
+        <lightning-card>
+
+            <template if:true={state.rowsExistsToDisplay}>
+                <template for:each={rows} for:item="row">
+                    <c-tile row={row} key={row.Id}></c-tile>
+                </template>
+            </template>
+            <template if:false={state.rowsExistsToDisplay}>
+                <b><span class="slds-p-left_small"> No Record(s) Selected.</span></b>
+            </template>
+
+        </lightning-card>
+    
+    </template>
+</template>

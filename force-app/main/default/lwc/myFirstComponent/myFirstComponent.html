@@ -1,0 +1,23 @@
+<!--
+*
+* Purpose : My First LWC Component
+*
+*Created Date : 05/19/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/19/2023
+*
+-->
+<template>
+    <lightning-card class="temp" variant="Narrow"  title="Hello SalesForce" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Click Here" slot="actions"></lightning-button-icon>
+        <lightning-button label="Alpha" title="titleName" onclick={handleClick} slot="actions"></lightning-button>
+        <lightning-button variant="destructive" label="Beta" slot="actions"></lightning-button>
+        <lightning-button variant="neutral" label="Gamma" slot="actions"></lightning-button>
+        <lightning-button variant="inverse" label="Delta" title="titleName" onclick={handleClick} slot="actions"></lightning-button>
+        <p class="clickhere">My First Component</p>
+        <marquee> <a href={localObjectName} > <b> Click Here : To Know More </b> </a> </marquee>
+        <p slot="footer">{localObjectName}</p>
+    </lightning-card>
+</template>

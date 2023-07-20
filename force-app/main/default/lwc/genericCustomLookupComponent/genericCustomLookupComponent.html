@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="Generic Custom Lookup Component">
+    <lightning-input label="Object Name" value={objectName} onchange={handleObjectNameChange}></lightning-input>
+    <c-show-records-component object-name={objectName} onrecordselect={handleRecordSelect}></c-show-records-component>
+  </lightning-card>
+</template>

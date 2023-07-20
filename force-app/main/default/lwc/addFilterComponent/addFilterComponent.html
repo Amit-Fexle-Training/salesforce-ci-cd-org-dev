@@ -1,0 +1,46 @@
+<!--
+*
+* Purpose : Child Component For reportDisplayComponent to add filter for querying records
+*
+*Created Date : 05/27/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/27/2023
+*
+-->
+<template>
+  <lightning-card title="Add Filter">
+    <template for:each={comboRows} for:item="comboRow" for:index="index">
+      <div key={comboRow.id}>
+        <lightning-layout>
+          <lightning-layout-item size="4">
+            <lightning-combobox label="Field Name" value={comboRow.fieldName} options={fieldOptions} onchange={handleFieldChange} data-index={index}></lightning-combobox>
+          </lightning-layout-item>
+          <lightning-layout-item size="4">
+            <lightning-combobox label="Operator" value={comboRow.operator} options={operatorOptions} onchange={handleOperatorChange} data-index={index}></lightning-combobox>
+          </lightning-layout-item>
+          <lightning-layout-item size="4">
+            <lightning-input label="Values" value={comboRow.values} onchange={handleValuesChange} data-index={index}></lightning-input>
+          </lightning-layout-item>
+        </lightning-layout>
+      </div>
+    </template>
+    <div class="slds-m-top_medium">
+      <lightning-button label="Add Filter" variant="brand" onclick={handleAddFilter} ></lightning-button>
+      <lightning-button label="Delete Filter" variant="destructive" onclick={handleDeleteFilter} ></lightning-button>
+    </div>
+    <div class="slds-m-top_medium">
+      <lightning-layout>
+        <lightning-layout-item size="4">
+          <lightning-combobox label="Rule Criteria" value={selectedRule} options={RuleOptions} onchange={handleRuleChange}></lightning-combobox>
+        </lightning-layout-item>
+        <div lwc:if={custom}>
+          <lightning-layout-item size="4">
+            <lightning-input label="FIlter Logic" value={filterLogic} onchange={handleFilterLogic}></lightning-input>
+          </lightning-layout-item>
+        </div>
+      </lightning-layout>
+    </div>
+  </lightning-card>
+</template>

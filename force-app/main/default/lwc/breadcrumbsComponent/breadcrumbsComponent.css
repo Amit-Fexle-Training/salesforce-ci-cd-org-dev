@@ -1,0 +1,16 @@
+.breadcrumb-list {
+    display: flex;
+    justify-content: flex-start;
+  	align-items: center;
+	padding-left: 10px;
+}
+
+.breadcrumb-list lightning-breadcrumb {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color:rgba(169, 197, 244, 0.795);
+}
+
+.breadcrumb-list lightning-breadcrumb:hover {
+    background-color: rgba(174, 233, 242, 0.763);
+}

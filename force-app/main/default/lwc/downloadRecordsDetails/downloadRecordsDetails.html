@@ -1,0 +1,25 @@
+<!--
+*
+*Purpose : LWC component to Download Related Contacts Of Account
+*
+*Created Date : 06/03/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 06/03/2023
+*
+-->
+<template>
+    <template if:false={state.initDone}>
+        <c-stencil-template flexipage-region-width={flexipageRegionWidth}></c-stencil-template>
+    </template>
+    <template if:true={state.initDone}>
+        <lightning-card  variant="Narrow"  title="Download Contacts" >
+            <lightning-layout>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="12" large-device-size="12">
+                    <lightning-button label="Download" variant="brand" onclick={handleDownload}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </template>
+</template>

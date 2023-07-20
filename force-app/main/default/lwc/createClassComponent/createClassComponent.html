@@ -1,0 +1,25 @@
+<!--
+*Purpose : LWC component to create class
+*
+*Created Date : 05/23/2023
+*
+* Created By : Amit Kumar
+*
+* Revision Log : v_1.0 - created - 05/23/2023
+*
+-->
+<template>
+    <lightning-quick-action-panel header="Create Class">
+        <lightning-record-edit-form object-api-name="Class__c"
+                                    onsuccess={handleSuccess}>
+            <lightning-input-field field-name="Name" ></lightning-input-field>
+            <lightning-input-field field-name="School__c"
+                                   value={recordId}></lightning-input-field>
+            <lightning-input-field field-name="Board__c" ></lightning-input-field>
+            <lightning-input-field field-name="Status__c" ></lightning-input-field>
+            <lightning-input-field field-name="Student__c" ></lightning-input-field>
+            <lightning-button variant="neutral" label="Cancel"></lightning-button>
+            <lightning-button variant="brand" class="slds-m-left_x-small" label="Save" type="submit"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-quick-action-panel>
+</template>

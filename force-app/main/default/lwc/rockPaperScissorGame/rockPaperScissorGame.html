@@ -1,0 +1,49 @@
+<template>
+	<div class="container">
+		<div class="header">
+			<Span class="heading"> <B> Rock Paper Scissor Game </B> </Span>
+			<template if:true={gameStart}>
+				<div class="header-content">
+					<div> Winner : {Winner} </Div>
+					<div> Player1 Choice : {player1Choice} </div>
+					<div> Player2 Choice : {player2Choice} </div>
+					<div> Player1 Score : {player1Score} </Div>
+					<div> player2 Score : {player2Score} </Div>
+				</div>
+			</template>
+		</div>
+		<div class="game-container">
+			<template if:false={gameStart}>
+				<div class="card-container">
+					<div class="card" onclick={singlePlayerMode}>
+						<div class="card-content"> Play Against The Computer </div>
+					</div>
+					<div class="card" onclick={dualPlayerMode}>
+						<div class="card-content"> Play With Your Friend </div>
+					</div>
+				</div>
+			</template>
+			<template if:true={gameStart}>
+				<div class="game-container">
+					<div class="game-card-container">
+						<div class="game-card" onclick={rockSelection}>
+							<div class="game-card-content"> ROCK </div>
+							<p style="text-align: center">Time To Rock</p>
+						</div>
+						<div class="game-card" onclick={paperSelection}>
+							<div class="game-card-content"> Paper </div>
+							<p style="text-align: center">Time To Wrap</p>
+						</div>
+						<div class="game-card" onclick={scissorSelection}>
+							<div class="game-card-content"> Scissor </div>
+							<p style="text-align: center">Time To Cut Down</p>
+						</div>
+					</div>
+				</div>
+			</template>
+		</div>
+		<div class="footer">
+			<lightning-button variant="base" label="Home" title="Home" onclick={backToHome}></lightning-button>
+		</div>
+	</div>
+</template>
