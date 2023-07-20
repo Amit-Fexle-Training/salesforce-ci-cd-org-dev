@@ -11,12 +11,12 @@ Date : 16/03/2023
 public class Task2 {    
     
     //Method that takes the Map as a parameter and returns the sum of all the values in the map
-    public Integer FindSum(Map<String, Integer> mymap){
-        Integer sum =0;
-        for(Integer M : mymap.values() ){
-            sum+= M;
+    public void FindSum(Map<String, Integer> myMap){
+        Integer summation = 0;
+        for(Integer m : myMap.values() ){
+            summation+= m;
         } 
-        return sum;
+        system.debug(summation);
     }
 
 }
