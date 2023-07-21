@@ -13,8 +13,8 @@ public class Task2 {
     //Method that takes the Map as a parameter and returns the sum of all the values in the map
     public void FindSum(Map<String, Integer> myMap){
         Integer summation = 0;
-        for(Integer z : myMap.values() ){
-            summation+= z;
+        for(Integer m : myMap.values() ){
+            summation+= m;
         } 
         system.debug(summation);
     }
